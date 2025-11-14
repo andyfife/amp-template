@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <main>
-      <h1>Evergreen todos</h1>
+      <h1>Evergreen1.0</h1>
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map((todo) => (
