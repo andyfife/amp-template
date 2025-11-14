@@ -1,52 +1,38 @@
-'use client';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { useState, useEffect } from 'react';
-import { generateClient } from 'aws-amplify/data';
-import type { Schema } from '@/amplify/data/resource';
-import './../app/app.css';
-import { Amplify } from 'aws-amplify';
-import outputs from '@/amplify_outputs.json';
-import '@aws-amplify/ui-react/styles.css';
+import { Button } from '@/components/ui/button';
 
-Amplify.configure(outputs);
-
-const client = generateClient<Schema>();
-
-export default function App() {
-  const [todos, setTodos] = useState<Array<Schema['Todo']['type']>>([]);
-
-  function listTodos() {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }
-
-  useEffect(() => {
-    listTodos();
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt('Todo content'),
-    });
-  }
-
+export default async function Home() {
   return (
-    <main>
-      <h1>Evergreen1.0</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-          Review next steps of this tutorial.
-        </a>
+    <div className="flex flex-col items-center justify-start bg-zinc-50 font-sans dark:bg-black">
+      {/* Hero Image */}
+      <div className="mt-8 flex justify-center w-full">
+        <div className="relative w-full max-w-5xl aspect-video">
+          <Image
+            src="/images/evergreen-home1.png"
+            alt="Evergreen Home"
+            fill
+            style={{ objectFit: 'cover' }}
+            className="rounded-xs"
+            priority
+          />
+        </div>
       </div>
-    </main>
+
+      {/* Text section */}
+      <div className="max-w-3xl mx-auto px-4 mt-8 text-left">
+        <p className="text-xl text-gray-600 leading-relaxed">
+          We provide a unique opportunity for families of the Chinese Diaspora
+          to preserve their immigrant experiences. This is a space where family
+          members interview one another, ensuring that the narrative of their
+          family's journey remains authentic and firmly in their hands. It's a
+          place where families take control of their own stories, creating a
+          lasting legacy for future generations.
+        </p>
+
+        {/* Show Sign Up button only if user is signed out */}
+      </div>
+    </div>
   );
 }
