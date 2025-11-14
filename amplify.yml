@@ -9,6 +9,7 @@ frontend:
   phases:
     build:
       commands:
+        - npm ci --legacy-peer-deps --cache .npm --prefer-offline # Add ci + --legacy-peer-deps for clean, tolerant install
         - npm run build
   artifacts:
     baseDirectory: .next
