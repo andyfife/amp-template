@@ -3,13 +3,15 @@ backend:
   phases:
     build:
       commands:
+        - nvm install 20.11.1
+        - nvm use 20.11.1
+        - npm install --package-lock-only
         - npm ci --cache .npm --prefer-offline
         - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
     build:
       commands:
-        - npm ci --legacy-peer-deps --cache .npm --prefer-offline # Add ci + --legacy-peer-deps for clean, tolerant install
         - npm run build
   artifacts:
     baseDirectory: .next
@@ -19,4 +21,3 @@ frontend:
     paths:
       - .next/cache/**/*
       - .npm/**/*
-      - node_modules/**/*
