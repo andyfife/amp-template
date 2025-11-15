@@ -3,7 +3,7 @@ backend:
   phases:
     build:
       commands:
-        - yum install -y libatomic
+        - sudo yum install -y libatomic
         - nvm install 20.17.0
         - nvm use 20.17.0
         - npm install --package-lock-only
@@ -13,7 +13,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - yum install -y libatomic
+        - sudo yum install -y libatomic
     build:
       commands:
         - npm run build
