@@ -56,8 +56,8 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^1.11.0",
-    "@aws-amplify/backend-cli": "^1.8.0",
+    "@aws-amplify/backend": "1.18.0",
+    "@aws-amplify/backend-cli": "1.8.0",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
