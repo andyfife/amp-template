@@ -3,6 +3,7 @@ backend:
   phases:
     build:
       commands:
+        - sudo yum install -y libatomic
         - nvm install 20.17.0
         - nvm use 20.17.0
         - npm install --package-lock-only
