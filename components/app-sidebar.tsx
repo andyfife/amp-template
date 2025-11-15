@@ -3,17 +3,16 @@
 import * as React from 'react';
 import { Heart, Info, Mail, Mic, Users, Shield } from 'lucide-react';
 
-
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarRail,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
 } from '@/components/ui/sidebar';
 
+import { NavMain } from './nav-main';
+import { NavProjects } from './nav-projects';
 import { NavUser } from './nav-user';
 
 
@@ -102,26 +101,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   }, [isAdmin]);
 
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
-      <SidebarHeader />
+    <Sidebar collapsible="icon" {...props}>
+      <SidebarHeader>
+        <div className="flex items-center gap-2 px-2 py-4">
+          <span className="text-lg font-semibold">Evergreen</span>
+        </div>
+      </SidebarHeader>
 
       <SidebarContent>
-        {/* <NavMain items={navMainWithAdmin} /> */}
-        {/* <NavProjects projects={data.projects} /> */}
-
-        {/* Notifications Link with Badge */}
-     
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild>
-            
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        
+        <NavMain items={navMainWithAdmin} />
+        <NavProjects projects={data.projects} />
       </SidebarContent>
 
-     
+      <SidebarFooter>
+        <NavUser />
+      </SidebarFooter>
 
       <SidebarRail />
     </Sidebar>

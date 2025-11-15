@@ -1,7 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
-
-import { Button } from '@/components/ui/button';
 
 export default async function Home() {
   return (
@@ -9,14 +6,14 @@ export default async function Home() {
       {/* Hero Image */}
       <div className="mt-8 flex justify-center w-full">
         <div className="relative w-full max-w-5xl aspect-video">
-          <Image
+          {/* <Image
             src="/images/evergreen-home1.png"
             alt="Evergreen Home"
             fill
             style={{ objectFit: 'cover' }}
             className="rounded-xs"
             priority
-          />
+          /> */}
         </div>
       </div>
 
