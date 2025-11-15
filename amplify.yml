@@ -3,7 +3,6 @@ backend:
   phases:
     build:
       commands:
-        - sudo yum install -y libatomic
         - nvm install 20.17.0
         - nvm use 20.17.0
         - npm install --package-lock-only
@@ -11,9 +10,6 @@ backend:
         - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
-    preBuild:
-      commands:
-        - sudo yum install -y libatomic
     build:
       commands:
         - npm run build
