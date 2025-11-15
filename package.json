@@ -78,5 +78,10 @@
   },
   "optionalDependencies": {
     "@parcel/watcher-linux-x64-glibc": "^2.5.0"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom",
+    "@aws-sdk/types": "^3.821.0"
   }
 }
